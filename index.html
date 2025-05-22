@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Sneakers Store - Pedido de Compra</title>
+    <!-- Biblioteca HTML2PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <!-- Cabeçalho da Loja -->
+    <div class="header">
+        <div class="logo">
+            <div class="logo-icon">KS</div>
+            <div class="logo-text">
+                <h1>KickStyle Store</h1>
+                <p>A melhor loja de tênis do Brasil</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Seção de Produtos (Loja) -->
+    <div id="store-view">
+        <div class="store-section">
+            <h2 class="section-title"></h2>
+            <div class="products-grid">
+                <!-- Produto 1 -->
+                <div class="product-card" data-id="1">
+                    <div class="product-image">
+                        <img src="/img/NikeCourtVisionLow.webp" alt="Air Sprint Pro" id="product-img-1">
+                        <label for="img-upload-1" class="upload-btn">Upload Imagem</label>
+                        <input type="file" id="img-upload-1" style="display: none;" accept="image/*" onchange="handleImageUpload(event, 1)">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Nike Court Vision Low</h3>
+                        <p class="product-price">R$ 399,99</p>
+                        <p class="product-description">Tênis de corrida profissional com tecnologia de amortecimento avançada e respirabilidade máxima.</p>
+                        <div class="product-controls">
+                            <div class="quantity-control">
+                                <div class="quantity-btn" onclick="decreaseQuantity(1)">-</div>
+                                <input type="number" class="quantity-input" id="quantity-1" value="1" min="1" max="10">
+                                <div class="quantity-btn" onclick="increaseQuantity(1)">+</div>
+                            </div>
+                            <button class="add-btn" onclick="addToCart(1)">Adicionar</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produto 2 -->
+                <div class="product-card" data-id="2">
+                    <div class="product-image">
+                        <img src="/img/NikeIniator.avif" alt="Power Jump Elite" id="product-img-2">
+                        <label for="img-upload-2" class="upload-btn">Upload Imagem</label>
+                        <input type="file" id="img-upload-2" style="display: none;" accept="image/*" onchange="handleImageUpload(event, 2)">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Nike Initiator</h3>
+                        <p class="product-price">R$ 435,99</p>
+                        <p class="product-description">Tênis de basquete de alto desempenho com suporte para saltos e estabilidade lateral superior.</p>
+                        <div class="product-controls">
+                            <div class="quantity-control">
+                                <div class="quantity-btn" onclick="decreaseQuantity(2)">-</div>
+                                <input type="number" class="quantity-input" id="quantity-2" value="1" min="1" max="10">
+                                <div class="quantity-btn" onclick="increaseQuantity(2)">+</div>
+                            </div>
+                            <button class="add-btn" onclick="addToCart(2)">Adicionar</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produto 3 -->
+                <div class="product-card" data-id="3">
+                    <div class="product-image">
+                        <img src="/img/AdidasGrandCourt.avif" alt="UltraFlex Trail" id="product-img-3">
+                        <label for="img-upload-3" class="upload-btn">Upload Imagem</label>
+                        <input type="file" id="img-upload-3" style="display: none;" accept="image/*" onchange="handleImageUpload(event, 3)">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Adidas Grand Court</h3>
+                        <p class="product-price">R$ 203,00</p>
+                        <p class="product-description">Tênis para trilha com sola aderente, proteção contra água e materiais ultra resistentes.</p>
+                        <div class="product-controls">
+                            <div class="quantity-control">
+                                <div class="quantity-btn" onclick="decreaseQuantity(3)">-</div>
+                                <input type="number" class="quantity-input" id="quantity-3" value="1" min="1" max="10">
+                                <div class="quantity-btn" onclick="increaseQuantity(3)">+</div>
+                            </div>
+                            <button class="add-btn" onclick="addToCart(3)">Adicionar</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produto 4 -->
+                <div class="product-card" data-id="4">
+                    <div class="product-image">
+                        <img src="/img/AsicsGelCumulus.png" alt="Fusion Lite" id="product-img-4">
+                        <label for="img-upload-4" class="upload-btn">Upload Imagem</label>
+                        <input type="file" id="img-upload-4" style="display: none;" accept="image/*" onchange="handleImageUpload(event, 4)">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Asics Gel Cumulus </h3>
+                        <p class="product-price">R$ 335,50</p>
+                        <p class="product-description">Tênis leve e versátil para uso diário, com tecnologia de absorção de impacto e design moderno.</p>
+                        <div class="product-controls">
+                            <div class="quantity-control">
+                                <div class="quantity-btn" onclick="decreaseQuantity(4)">-</div>
+                                <input type="number" class="quantity-input" id="quantity-4" value="1" min="1" max="10">
+                                <div class="quantity-btn" onclick="increaseQuantity(4)">+</div>
+                            </div>
+                            <button class="add-btn" onclick="addToCart(4)">Adicionar</button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <!-- Seção do Carrinho -->
+        <div class="cart-section">
+            <h2 class="section-title">Carrinho de Compras</h2>
+            <div id="empty-cart-message">Seu carrinho está vazio. Adicione produtos para continuar.</div>
+            <table class="cart-table" id="cart-table" style="display: none;">
+                <thead>
+                    <tr>
+                        <th width="80">Imagem</th>
+                        <th>Produto</th>
+                        <th width="100">Preço Unit.</th>
+                        <th width="80">Quantidade</th>
+                        <th width="120">Subtotal</th>
+                        <th width="80">Ação</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items">
+                    <!-- Itens do carrinho serão adicionados dinamicamente aqui -->
+                </tbody>
+            </table>
+            
+            <div class="cart-totals" id="cart-totals" style="display: none;">
+                <div class="cart-total-row">
+                    <strong>Subtotal:</strong>
+                    <span id="cart-subtotal">R$ 0,00</span>
+                </div>
+                <div class="cart-total-row">
+                    <strong>Frete:</strong>
+                    <span id="cart-shipping">R$ 0,00</span>
+                </div>
+                <div class="cart-total-row cart-grand-total">
+                    <strong>TOTAL:</strong>
+                    <span id="cart-total">R$ 0,00</span>
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <button id="preview-order-btn" class="action-button preview-button" disabled>Visualizar Pedido</button>
+                <button id="generate-pdf-btn" class="action-button pdf-button" disabled>Gerar PDF do Pedido</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Seção de Visualização do Pedido (PDF) -->
+    <div id="document-view" class="document-container">
+        <!-- Cabeçalho do Documento -->
+        <div class="document-header">
+            <div class="logo">
+                <div class="logo-icon">KS</div>
+                <div class="logo-text">
+                    <h1>KickStyle Store</h1>
+                    <p>Av. Paulista, 1500 - São Paulo - SP, CEP 01310-200</p>
+                    <p>CNPJ: 12.345.678/0001-99 | Tel: (11) 3456-7890</p>
+                </div>
+            </div>
+            <div>
+                <p><strong>Pedido Nº:</strong> <span id="order-number"></span></p>
+            </div>
+        </div>
+        
+        <!-- Título do documento -->
+        <h2 class="document-title">PEDIDO DE COMPRA</h2>
+        
+        <!-- Informações do documento -->
+        <div class="document-info">
+            <div class="info-column">
+                <div class="info-group">
+                    <label>Data de Emissão:</label>
+                    <span id="document-date"></span>
+                </div>
+                <div class="info-group">
+                    <label>Condição de Pagamento:</label>
+                    <span>À vista / Cartão de Crédito</span>
+                </div>
+                <div class="info-group">
+                    <label>Previsão de Entrega:</label>
+                    <span id="delivery-date"></span>
+                </div>
+            </div>
+            <div class="info-column">
+                <div class="info-group">
+                    <label>Cliente:</label>
+                    <input type="text" id="customer-name" placeholder="Digite seu nome completo" style="width: 100%; padding: 5px;">
+                </div>
+                <div class="info-group">
+                    <label>CPF/CNPJ:</label>
+                    <input type="text" id="customer-document" placeholder="Digite seu CPF ou CNPJ" style="width: 100%; padding: 5px;">
+                </div>
+                <div class="info-group">
+                    <label>Email/Telefone:</label>
+                    <input type="text" id="customer-contact" placeholder="Digite seu email ou telefone" style="width: 100%; padding: 5px;">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tabela de itens -->
+        <table class="document-table">
+            <thead>
+                <tr>
+                    <th width="60">Item</th>
+                    <th>Descrição</th>
+                    <th width="100">Valor Unit.</th>
+                    <th width="80">Qtd</th>
+                    <th width="120">Valor Total</th>
+                </tr>
+            </thead>
+            <tbody id="document-items">
+                <!-- Itens do pedido serão adicionados dinamicamente aqui -->
+            </tbody>
+        </table>
+        
+        <!-- Totais -->
+        <div class="document-totals">
+            <div class="document-total-row">
+                <strong>Subtotal:</strong>
+                <span id="document-subtotal">R$ 0,00</span>
+            </div>
+            <div class="document-total-row">
+                <strong>Frete:</strong>
+                <span id="document-shipping">R$ 0,00</span>
+            </div>
+            <div class="document-total-row document-grand-total">
+                <strong>TOTAL:</strong>
+                <span id="document-total">R$ 0,00</span>
+            </div>
+        </div>
+        
+        <!-- Observações -->
+        <div class="document-observations">
+            <h3>Observações</h3>
+            <textarea id="document-observations" placeholder="Adicione observações ou instruções especiais para este pedido"></textarea>
+        </div>
+        
+        <!-- Assinaturas -->
+        <div class="document-signatures">
+            <div class="signature">
+                <div class="signature-line"></div>
+                <input type="text" id="customer-signature" placeholder="Assinatura do Cliente">
+                <p>Cliente</p>
+            </div>
+            <div class="signature">
+                <div class="signature-line"></div>
+                <p>Lucas Gomes</p>
+                <p>Vendendor</p>
+            </div>
+        </div>
+        
+        <!-- Rodapé -->
+        <div class="document-footer">
+            <p>KickStyle Store | www.kickstyle.com.br | contato@kickstyle.com.br</p>
+            <p>Este documento é válido por 30 dias a partir da data de emissão.</p>
+        </div>
+        
+        <!-- Botões de ação do documento -->
+        <div class="action-buttons">
+            <button id="return-to-store-btn" class="action-button return-button">Voltar para Loja</button>
+            <button id="download-pdf-btn" class="action-button pdf-button">Baixar PDF</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+<body>
+<html>
